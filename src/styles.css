@@ -1,0 +1,215 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Fredoka', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fredoka', ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 40px;
+  --radius-3xl: 48px;
+  --radius-full: 9999px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-cream: var(--cream);
+  --color-brown-deep: var(--brown-deep);
+  --color-brown: var(--brown);
+  --color-brown-mid: var(--brown-mid);
+  --color-orange: var(--orange);
+  --color-orange-deep: var(--orange-deep);
+  --color-yellow-junina: var(--yellow-junina);
+  --color-red-junina: var(--red-junina);
+}
+
+:root {
+  /* Premium chocolate & gold palette */
+  --cream: #fbf8f4;
+  --brown-deep: #2b170e;
+  --brown: #452614;
+  --brown-mid: #5c351f;
+  --orange: #5c351f;
+  --orange-deep: #3d2111;
+  --yellow-junina: #c5a06d;
+  --red-junina: #22c55e;
+
+  --background: var(--brown-deep);
+  --foreground: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #1a0f0a;
+  --popover: #ffffff;
+  --popover-foreground: #1a0f0a;
+  --primary: var(--brown);
+  --primary-foreground: #ffffff;
+  --secondary: var(--yellow-junina);
+  --secondary-foreground: var(--brown-deep);
+  --muted: rgb(255 255 255 / 0.08);
+  --muted-foreground: rgb(255 255 255 / 0.72);
+  --accent: var(--yellow-junina);
+  --accent-foreground: var(--brown-deep);
+  --destructive: #22c55e;
+  --destructive-foreground: #ffffff;
+  --border: rgb(255 255 255 / 0.12);
+  --input: #ece5da;
+  --ring: var(--yellow-junina);
+  --on-card: #1a0f0a;
+  --on-card-muted: #6b5646;
+  --on-card-border: #ece5da;
+  --radius: 1rem;
+
+  --gradient-page: radial-gradient(ellipse 80% 60% at 50% 40%, var(--brown-mid) 0%, var(--brown-deep) 55%, #1a0f0a 100%);
+  --gradient-section: linear-gradient(180deg, var(--brown-deep) 0%, var(--brown) 50%, var(--brown-deep) 100%);
+  --gradient-cta: linear-gradient(135deg, #452614 0%, #3d2111 100%);
+  --gradient-cta-hover: linear-gradient(135deg, #5c351f 0%, #452614 100%);
+  --gradient-gold: linear-gradient(135deg, #d4b876 0%, #c5a06d 100%);
+  --shadow-soft: 0 8px 24px -8px rgb(0 0 0 / 0.35), 0 4px 12px -4px rgb(0 0 0 / 0.2);
+  --shadow-card: 0 20px 48px -20px rgb(0 0 0 / 0.45), 0 8px 20px -8px rgb(0 0 0 / 0.25);
+  --shadow-cta: 0 14px 32px -10px rgb(0 0 0 / 0.5), 0 6px 14px -4px rgb(69 38 20 / 0.4);
+  --shadow-cta-hover: 0 22px 44px -12px rgb(0 0 0 / 0.55), 0 10px 20px -6px rgb(69 38 20 / 0.45);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: 'Fredoka', system-ui, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fredoka', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+}
+
+@layer components {
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-image: var(--gradient-cta);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.125rem;
+    padding: 1.125rem 2rem;
+    border-radius: 64px;
+    box-shadow: var(--shadow-cta);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, background-image 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-cta:hover {
+    transform: scale(1.035);
+    box-shadow: var(--shadow-cta-hover);
+    filter: brightness(1.08);
+    background-image: var(--gradient-cta-hover);
+  }
+  .btn-cta::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -120%;
+    width: 60%; height: 100%;
+    background: linear-gradient(110deg, transparent, rgba(255,255,255,0.35), transparent);
+    transition: left 0.7s ease;
+  }
+  .btn-cta:hover::after { left: 130%; }
+
+  .premium-card {
+    background: #fff;
+    border-radius: 32px;
+    box-shadow: var(--shadow-card);
+  }
+
+  .blob-shape {
+    border-radius: 56% 44% 62% 38% / 48% 60% 40% 52%;
+  }
+  .blob-shape-2 {
+    border-radius: 38% 62% 45% 55% / 55% 42% 58% 45%;
+  }
+
+  .tag-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--yellow-junina);
+    color: var(--brown-deep);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    box-shadow: 0 4px 12px -4px rgb(197 160 109 / 0.45);
+  }
+
+  .section-brown {
+    background: var(--gradient-section);
+  }
+
+  .icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(255 255 255 / 0.1);
+    color: var(--yellow-junina);
+    border: 1px solid rgb(255 255 255 / 0.12);
+  }
+
+  .content-card-dark {
+    background: rgb(255 255 255 / 0.06);
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: 32px;
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(8px);
+  }
+
+  .float-anim {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
