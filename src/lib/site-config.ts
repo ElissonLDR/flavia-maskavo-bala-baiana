@@ -11,14 +11,14 @@ export const siteConfig = {
   hostName: "Flávia Maskavo",
 
   /** Event identity */
-  eventName: "Cookie NYC Lakaoreo",
-  eventHook: "Dia Mundial do Chocolate",
-  eventDateShort: "07/07", // shown as the date chip
-  eventTimeShort: "19h", // shown as the time chip
-  eventDateLong: "07 de julho, às 19h", // used in body copy
+  eventName: "Cookie de Bala Baiana",
+  eventHook: "Bala Baiana",
+  eventDateShort: "17 de agosto",
+  eventTimeShort: "[HORÁRIO]", // atualizar quando o horário for confirmado
+  eventDateLong: "17 de agosto",
   eventIsOnline: true,
   eventIsFree: true,
-  eventOrigin: "landing-cookie-nyc", // sent to the webhook as `origem`
+  eventOrigin: "landing-bala-baiana",
 
   /** Social proof */
   socialProofCount: "+4 mil",
@@ -33,12 +33,12 @@ export const siteConfig = {
 
   /** SEO — keep title < 60 chars, description < 160 chars */
   seo: {
-    title: "Aula Gratuita AO VIVO — Cookie NYC Lakaoreo com Flávia Maskavo",
+    title: "Aula Gratuita AO VIVO — Cookie de Bala Baiana com Flávia Maskavo",
     description:
-      "07/07 às 19h. Aprenda o Cookie NYC Lakaoreo ao vivo com Flávia Maskavo e ganhe uma oportunidade exclusiva. Vagas limitadas.",
-    ogTitle: "Aula Gratuita AO VIVO — Cookie NYC Lakaoreo",
+      "17 de agosto. Aprenda o Cookie de Bala Baiana ao vivo com Flávia Maskavo. Online e gratuito. A aula não ficará gravada.",
+    ogTitle: "Aula Gratuita AO VIVO — Cookie de Bala Baiana",
     ogDescription:
-      "Comemore o Dia Mundial do Chocolate com uma aula gratuita ao vivo em 07/07 às 19h. Cadastre-se e entre no grupo exclusivo.",
+      "Aula prática e gratuita ao vivo em 17 de agosto. Aprenda o Cookie de Bala Baiana com Flávia Maskavo. Inscreva-se agora.",
   },
 } as const;
 
