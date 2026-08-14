@@ -5,9 +5,7 @@ import { Calendar, Clock, Wifi, MessageCircle, Check, Sparkles } from "lucide-re
 import heroFlavia from "@/assets/hero-flavia.jpg";
 import cookieOpen from "@/assets/cookie-open.jpg";
 import logoMaskavo from "@/assets/logo-maskavo.svg";
-
-const WEBHOOK_URL =
-  "https://webhook-n8n.v4companyamaral.com/webhook/fc7781ec-0d4c-46e3-ba4c-3c0dfc2c0a96";
+import { siteConfig } from "@/lib/site-config";
 
 function maskPhone(value: string): string {
   const digits = value.replace(/\D/g, "").slice(0, 11);
@@ -23,18 +21,10 @@ function maskPhone(value: string): string {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aula Gratuita AO VIVO — Cookie NYC Lakaoreo com Flávia Maskavo" },
-      {
-        name: "description",
-        content:
-          "07/07 às 19h. Aprenda o Cookie NYC Lakaoreo ao vivo com Flávia Maskavo e ganhe uma oportunidade exclusiva. Vagas limitadas.",
-      },
-      { property: "og:title", content: "Aula Gratuita AO VIVO — Cookie NYC Lakaoreo" },
-      {
-        property: "og:description",
-        content:
-          "Comemore o Dia Mundial do Chocolate com uma aula gratuita ao vivo em 07/07 às 19h. Cadastre-se e entre no grupo exclusivo.",
-      },
+      { title: siteConfig.seo.title },
+      { name: "description", content: siteConfig.seo.description },
+      { property: "og:title", content: siteConfig.seo.ogTitle },
+      { property: "og:description", content: siteConfig.seo.ogDescription },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -59,7 +49,7 @@ function Landing() {
       /* noop */
     }
     try {
-      await fetch(WEBHOOK_URL, {
+      await fetch(siteConfig.webhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -67,7 +57,7 @@ function Landing() {
           whatsapp: form.whatsapp.trim(),
           whatsapp_digits: digits,
           email: form.email.trim(),
-          origem: "landing-cookie-nyc",
+          origem: siteConfig.eventOrigin,
           submitted_at: new Date().toISOString(),
         }),
       });
@@ -91,7 +81,7 @@ function Landing() {
           <div className="order-1 text-center lg:text-left">
             <img
               src={logoMaskavo}
-              alt="Maskavo"
+              alt={siteConfig.brandName}
               className="mx-auto mb-6 h-9 w-auto md:h-11 lg:mx-0"
             />
 
@@ -102,17 +92,17 @@ function Landing() {
 
             <h1 className="mt-6 text-3xl leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl">
               Comemore o{" "}
-              <span className="italic text-white">Dia Mundial do Chocolate</span>{" "}
+              <span className="italic text-white">{siteConfig.eventHook}</span>{" "}
               aprendendo um{" "}
-              <span className="font-bold text-[color:var(--yellow-junina)]">Cookie NYC Lakaoreo</span>
+              <span className="font-bold text-[color:var(--yellow-junina)]">{siteConfig.eventName}</span>
             </h1>
 
             <p className="mt-4 text-xl font-semibold text-white sm:text-2xl">
-              AO VIVO com Flávia Maskavo.
+              AO VIVO com {siteConfig.hostName}.
             </p>
 
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/75 md:text-xl lg:mx-0">
-              No dia <strong className="text-white">07 de julho, às 19h</strong>, participe
+              No dia <strong className="text-white">{siteConfig.eventDateLong}</strong>, participe
               gratuitamente de uma aula especial e descubra uma surpresa exclusiva preparada para
               quem estiver ao vivo.
             </p>
@@ -130,7 +120,7 @@ function Landing() {
               <div className="premium-card overflow-hidden rounded-[2.5rem]">
                 <img
                   src={heroFlavia}
-                  alt="Flávia Maskavo segurando o Cookie NYC Lakaoreo"
+                  alt={`${siteConfig.hostName} segurando o ${siteConfig.eventName}`}
                   width={1024}
                   height={1280}
                   className="h-full w-full object-cover"
@@ -144,9 +134,9 @@ function Landing() {
           <div className="content-card-dark rounded-3xl px-6 py-6 md:px-10 md:py-8">
             <ul className="grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-4">
               {[
-                { icon: Calendar, label: "07/07" },
-                { icon: Clock, label: "19h" },
-                { icon: Wifi, label: "Evento online e gratuito" },
+                { icon: Calendar, label: siteConfig.eventDateShort },
+                { icon: Clock, label: siteConfig.eventTimeShort },
+                { icon: Wifi, label: siteConfig.eventIsOnline ? "Evento online e gratuito" : "Evento presencial" },
                 { icon: MessageCircle, label: "Acesso pelo grupo exclusivo de WhatsApp" },
               ].map(({ icon: Icon, label }) => (
                 <li key={label} className="flex flex-col items-center justify-center gap-3 text-center">
@@ -171,7 +161,7 @@ function Landing() {
               <div className="premium-card overflow-hidden rounded-[2.5rem]">
                 <img
                   src={cookieOpen}
-                  alt="Cookie NYC Lakaoreo aberto ao meio com recheio cremoso"
+                  alt={`${siteConfig.eventName} aberto ao meio com recheio cremoso`}
                   width={1280}
                   height={1280}
                   loading="lazy"
@@ -190,11 +180,11 @@ function Landing() {
 
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
                 {[
-                  { emoji: "🍪", text: "Receita completa do Cookie NYC Lakaoreo" },
+                  { emoji: "🍪", text: `Receita completa do ${siteConfig.eventName}` },
                   { emoji: "🍫", text: "Técnicas para textura, recheio e finalização" },
                   {
                     emoji: "🎂",
-                    text: "Dicas práticas utilizadas pela Flávia para produzir cookies premium",
+                    text: `Dicas práticas utilizadas pela ${siteConfig.hostName.split(" ")[0]} para produzir cookies premium`,
                   },
                   {
                     emoji: "🎁",
@@ -234,7 +224,7 @@ function Landing() {
                   "Ama confeitaria",
                   "Quer aprender uma receita diferenciada",
                   "Busca novidades para vender",
-                  "Já acompanha a Flávia ou deseja conhecer seu método",
+                  `Já acompanha a ${siteConfig.hostName.split(" ")[0]} ou deseja conhecer seu método`,
                   "Não quer perder oportunidades exclusivas",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-4">
@@ -248,8 +238,8 @@ function Landing() {
 
               <div className="mt-10 rounded-3xl border border-[color:var(--yellow-junina)]/35 bg-[color:var(--yellow-junina)]/10 p-6 md:p-7">
                 <p className="text-base font-medium text-white/90 md:text-lg">
-                  <span className="text-2xl font-bold text-[color:var(--yellow-junina)]">+4 mil</span>{" "}
-                  alunas já passaram pelos cursos da Flávia Maskavo.
+                  <span className="text-2xl font-bold text-[color:var(--yellow-junina)]">{siteConfig.socialProofCount}</span>{" "}
+                  {siteConfig.socialProofText}
                 </p>
               </div>
             </div>
@@ -260,7 +250,7 @@ function Landing() {
                 <div className="premium-card overflow-hidden rounded-[2.5rem]">
                   <img
                     src={heroFlavia}
-                    alt="Flávia Maskavo ensinando confeitaria em cozinha moderna"
+                    alt={`${siteConfig.hostName} ensinando confeitaria em cozinha moderna`}
                     width={1024}
                     height={1280}
                     loading="lazy"
@@ -346,7 +336,7 @@ function Landing() {
       </section>
 
       <footer className="border-t border-white/10 py-6 text-center text-sm text-white/50">
-        <p>© {new Date().getFullYear()} Flávia Maskavo · Todos os direitos reservados</p>
+        <p>© {new Date().getFullYear()} {siteConfig.hostName} · Todos os direitos reservados</p>
       </footer>
     </main>
   );
