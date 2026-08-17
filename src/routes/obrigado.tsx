@@ -21,8 +21,8 @@ export const Route = createFileRoute("/obrigado")({
 
 function ObrigadoPage() {
   return (
-    <main className="min-h-screen bg-[color:var(--brown-deep)] text-white">
-      <section className="mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-6 py-16 text-center">
+    <main className="min-h-screen text-[color:var(--brown-deep)]">
+      <section className="page-container flex min-h-screen flex-col items-center justify-center py-16 text-center">
         <img src={logoMaskavo} alt={siteConfig.brandName} className="mb-8 h-10 w-auto" />
 
         <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[color:var(--yellow-junina)] text-[color:var(--brown-deep)] shadow-lg">
@@ -33,16 +33,17 @@ function ObrigadoPage() {
           Cadastro <span className="italic">confirmado!</span>
         </h1>
 
-        <p className="mt-5 max-w-xl text-lg text-white/80">
+        <p className="mt-5 max-w-xl text-lg text-[color:var(--on-card-muted)]">
           Sua vaga está garantida na aula gratuita ao vivo do{" "}
-          <strong className="text-white">{siteConfig.eventName}</strong> com {siteConfig.hostName}.
+          <strong className="text-[color:var(--brown-deep)]">{siteConfig.eventName}</strong> com{" "}
+          {siteConfig.hostName}.
         </p>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-white/85">
-          <span className="flex items-center gap-2 rounded-full border border-white/15 px-4 py-2">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-[color:var(--brown)]">
+          <span className="flex items-center gap-2 rounded-full border border-[color:var(--yellow-junina)]/40 bg-white/70 px-4 py-2">
             <Calendar className="h-4 w-4" /> {siteConfig.eventDateShort}
           </span>
-          <span className="flex items-center gap-2 rounded-full border border-white/15 px-4 py-2">
+          <span className="flex items-center gap-2 rounded-full border border-[color:var(--yellow-junina)]/40 bg-white/70 px-4 py-2">
             <Clock className="h-4 w-4" /> {siteConfig.eventTimeShort}
           </span>
         </div>
@@ -60,7 +61,7 @@ function ObrigadoPage() {
               </svg>
             </span>
             <h2 className="mt-4 text-xl font-semibold sm:text-2xl">Entre no grupo exclusivo</h2>
-            <p className="mt-2 text-base text-white/80">
+            <p className="mt-2 text-base text-[color:var(--on-card-muted)]">
               Receba todas as informações e lembretes da aula direto no seu WhatsApp.
             </p>
 
@@ -85,7 +86,7 @@ function ObrigadoPage() {
 
         <Link
           to="/"
-          className="mt-10 text-sm text-white/60 underline underline-offset-4 hover:text-white"
+          className="mt-10 text-sm text-[color:var(--on-card-muted)] underline underline-offset-4 hover:text-[color:var(--brown-deep)]"
         >
           Voltar para a página inicial
         </Link>

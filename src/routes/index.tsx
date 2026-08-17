@@ -1,9 +1,9 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { Calendar, Clock, Sparkles } from "lucide-react";
+import { Calendar, Clock, Sparkles, VideoOff } from "lucide-react";
 
-import heroFlavia from "@/assets/hero-flavia.jpg";
-import cookieOpen from "@/assets/cookie-open.jpg";
+import cookieBalaBaiana from "@/assets/imagem-1-1-bala-baiana.jpeg";
+import cookieEstilizado from "@/assets/imagem-estilizada-bala-baiana.png";
 import logoMaskavo from "@/assets/logo-maskavo.svg";
 import { siteConfig } from "@/lib/site-config";
 
@@ -72,10 +72,10 @@ function Landing() {
   };
 
   return (
-    <main className="min-h-screen bg-[color:var(--brown-deep)] text-foreground">
+    <main className="min-h-screen text-foreground">
       {/* ===== Section 1 — Hero ===== */}
-      <section className="mx-auto max-w-7xl px-6 pt-8 pb-12 md:pt-12 md:pb-16 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+      <section className="page-container pt-8 pb-12 md:pt-12 md:pb-16">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="order-1 text-center lg:text-left">
             <img
               src={logoMaskavo}
@@ -88,20 +88,20 @@ function Landing() {
               AULA GRATUITA E AO VIVO • 17 DE AGOSTO
             </span>
 
-            <h1 className="mt-6 text-3xl leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl">
+            <h1 className="mt-6 text-3xl leading-[1.15] tracking-tight text-[color:var(--brown-deep)] sm:text-4xl md:text-5xl">
               Aprenda a fazer o{" "}
-              <span className="font-bold text-[color:var(--yellow-junina)]">
+              <span className="font-bold text-[color:var(--brown)]">
                 Cookie de Bala Baiana
               </span>{" "}
               com {siteConfig.hostName}
             </h1>
 
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/75 md:text-xl lg:mx-0">
+            <p className="mt-6 text-lg leading-relaxed text-[color:var(--on-card-muted)] md:text-xl">
               Uma aula prática para você aprender uma combinação diferente e irresistível: cookie +
               o sabor clássico da bala baiana.
             </p>
 
-            <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-white/75 md:text-xl lg:mx-0">
+            <p className="mt-4 text-lg leading-relaxed text-[color:var(--on-card-muted)] md:text-xl">
               Participe gratuitamente e acompanhe todo o preparo ao vivo com a Flávia.
             </p>
 
@@ -111,18 +111,18 @@ function Landing() {
               </button>
             </div>
 
-            <p className="mt-5 text-sm font-medium text-white/70 md:text-base">
+            <p className="mt-5 text-sm font-medium text-[color:var(--on-card-muted)] md:text-base">
               {siteConfig.eventDateShort} • {siteConfig.eventTimeShort} • Online e gratuito
             </p>
           </div>
 
           <div className="order-2">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-[color:var(--yellow-junina)]/15 blur-2xl" />
+            <div className="relative mx-auto w-full">
+              <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-[color:var(--yellow-junina)]/25 blur-2xl" />
               <div className="premium-card overflow-hidden rounded-[2.5rem]">
                 <img
-                  src={heroFlavia}
-                  alt={`${siteConfig.hostName} segurando o ${siteConfig.eventName}`}
+                  src={cookieBalaBaiana}
+                  alt={siteConfig.eventName}
                   width={1024}
                   height={1280}
                   className="h-full w-full object-cover"
@@ -135,39 +135,37 @@ function Landing() {
 
       {/* ===== Section 2 — O que você vai aprender ===== */}
       <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.1fr]">
-            <div className="order-2 lg:order-1">
-              <div className="premium-card overflow-hidden rounded-[2.5rem]">
-                <img
-                  src={cookieOpen}
-                  alt={`${siteConfig.eventName} aberto ao meio`}
-                  width={1280}
-                  height={1280}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-
-            <div className="order-1 lg:order-2">
-              <p className="text-sm font-semibold uppercase tracking-widest text-[color:var(--yellow-junina)]">
+        <div className="page-container">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className="text-center lg:order-2 lg:text-left">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[color:var(--brown)]">
                 Aula prática
               </p>
-              <h2 className="mt-3 text-3xl leading-tight text-white sm:text-4xl md:text-5xl">
+              <h2 className="mt-3 text-3xl leading-tight text-[color:var(--brown-deep)] sm:text-4xl md:text-5xl">
                 Uma receita para sair do cookie de sempre
               </h2>
 
-              <p className="mt-6 text-lg leading-relaxed text-white/75">
+              <p className="mt-6 text-lg leading-relaxed text-[color:var(--on-card-muted)]">
                 Flávia Maskavo vai preparar o Cookie de Bala Baiana e mostrar o passo a passo da
                 receita, compartilhando os detalhes que fazem diferença no preparo e no resultado
                 final.
               </p>
 
-              <p className="mt-4 text-lg leading-relaxed text-white/75">
+              <p className="mt-4 text-lg leading-relaxed text-[color:var(--on-card-muted)]">
                 Uma oportunidade para acompanhar a receita sendo feita ao vivo, entender cada etapa
                 e aprender uma nova opção para incluir no seu cardápio.
               </p>
+            </div>
+
+            <div className="mx-auto w-[70%] lg:order-1">
+              <img
+                src={cookieEstilizado}
+                alt={siteConfig.eventName}
+                width={1080}
+                height={1080}
+                loading="lazy"
+                className="h-auto w-full object-contain"
+              />
             </div>
           </div>
         </div>
@@ -175,53 +173,50 @@ function Landing() {
 
       {/* ===== Section 3 — Aula ao vivo ===== */}
       <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_1fr]">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-[color:var(--yellow-junina)]">
+        <div className="page-container">
+          <div className="relative overflow-hidden rounded-[2rem] border border-[color:var(--yellow-junina)]/35 bg-white/80 px-6 py-10 shadow-[var(--shadow-card)] sm:px-8 md:px-10 md:py-12 lg:px-10">
+            <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[color:var(--yellow-junina)]/20 blur-3xl" />
+            <div className="absolute -bottom-20 -left-12 h-44 w-44 rounded-full bg-[color:var(--brown)]/10 blur-3xl" />
+
+            <div className="relative text-center">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[color:var(--brown)]">
                 Anote na agenda
               </p>
-              <h2 className="mt-3 text-3xl leading-tight text-white sm:text-4xl md:text-5xl">
+              <h2 className="mt-3 text-3xl leading-tight text-[color:var(--brown-deep)] sm:text-4xl md:text-5xl">
                 Separe esse dia para aprender com a Flávia
               </h2>
 
-              <p className="mt-6 text-lg leading-relaxed text-white/75">
+              <p className="mt-6 text-lg leading-relaxed text-[color:var(--on-card-muted)]">
                 A aula acontece no dia 17 de agosto, ao vivo e gratuitamente.
               </p>
 
-              <p className="mt-4 text-lg leading-relaxed text-white/75">
-                E atenção: a aula não ficará gravada. Para acompanhar o preparo completo do Cookie
-                de Bala Baiana, você precisa estar presente no dia da transmissão.
-              </p>
-
-              <div className="mt-10 rounded-3xl border border-[color:var(--yellow-junina)]/35 bg-[color:var(--yellow-junina)]/10 p-6 md:p-7">
-                <div className="flex flex-wrap items-center gap-4 text-white">
-                  <span className="flex items-center gap-2 text-lg font-bold uppercase tracking-wide text-[color:var(--yellow-junina)] md:text-xl">
-                    <Calendar className="h-5 w-5" />
-                    17 DE AGOSTO
-                  </span>
-                  <span className="hidden h-5 w-px bg-[color:var(--yellow-junina)]/40 sm:block" />
-                  <span className="flex items-center gap-2 text-lg font-bold uppercase tracking-wide text-[color:var(--yellow-junina)] md:text-xl">
-                    <Clock className="h-5 w-5" />
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-3xl border border-[color:var(--yellow-junina)]/40 bg-[color:var(--cream)] px-6 py-6">
+                  <Calendar className="mx-auto h-7 w-7 text-[color:var(--brown)]" />
+                  <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-[color:var(--on-card-muted)]">
+                    Data
+                  </p>
+                  <p className="mt-1 text-xl font-bold uppercase tracking-wide text-[color:var(--brown-deep)]">
+                    17 de agosto
+                  </p>
+                </div>
+                <div className="rounded-3xl border border-[color:var(--yellow-junina)]/40 bg-[color:var(--cream)] px-6 py-6">
+                  <Clock className="mx-auto h-7 w-7 text-[color:var(--brown)]" />
+                  <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-[color:var(--on-card-muted)]">
+                    Horário
+                  </p>
+                  <p className="mt-1 text-xl font-bold uppercase tracking-wide text-[color:var(--brown-deep)]">
                     {siteConfig.eventTimeShort}
-                  </span>
+                  </p>
                 </div>
               </div>
-            </div>
 
-            <div>
-              <div className="relative mx-auto max-w-md lg:max-w-none">
-                <div className="absolute -inset-6 -z-10 rounded-[3rem] bg-[color:var(--yellow-junina)]/20 blur-2xl" />
-                <div className="premium-card overflow-hidden rounded-[2.5rem]">
-                  <img
-                    src={heroFlavia}
-                    alt={`${siteConfig.hostName} ensinando confeitaria`}
-                    width={1024}
-                    height={1280}
-                    loading="lazy"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
+              <div className="mt-8 flex items-start gap-3 rounded-2xl border border-[color:var(--brown)]/15 bg-[color:var(--brown)]/5 px-5 py-4 text-left sm:px-6">
+                <VideoOff className="mt-0.5 h-5 w-5 shrink-0 text-[color:var(--brown)]" />
+                <p className="text-base leading-relaxed text-[color:var(--brown-deep)]">
+                  <strong>A aula não ficará gravada.</strong> Para acompanhar o preparo completo do
+                  Cookie de Bala Baiana, você precisa estar presente no dia da transmissão.
+                </p>
               </div>
             </div>
           </div>
@@ -230,7 +225,7 @@ function Landing() {
 
       {/* ===== Section 4 — CTA + Formulário ===== */}
       <section id="cadastro" className="py-12 md:py-16">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+        <div className="page-container">
           <div className="overflow-hidden rounded-[2rem] shadow-[var(--shadow-card)] lg:grid lg:min-h-[480px] lg:grid-cols-2">
             <div className="order-1 flex flex-col justify-center bg-[color:var(--brown)] px-6 py-10 sm:px-8 lg:px-10">
               <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[color:var(--yellow-junina)] px-4 py-2 text-xs font-semibold uppercase tracking-widest text-[color:var(--brown-deep)]">
@@ -285,7 +280,7 @@ function Landing() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="btn-cta mt-8 w-full text-lg disabled:opacity-70"
+                className="btn-cta mt-8 w-full disabled:opacity-70"
               >
                 {submitting ? "Redirecionando..." : "Quero garantir minha vaga gratuita"}
               </button>
@@ -299,10 +294,12 @@ function Landing() {
         </div>
       </section>
 
-      <footer className="border-t border-white/10 py-6 text-center text-sm text-white/50">
-        <p>
-          © {new Date().getFullYear()} {siteConfig.hostName} · Todos os direitos reservados
-        </p>
+      <footer className="border-t border-[color:var(--brown-deep)]/10 py-6 text-center text-sm text-[color:var(--on-card-muted)]">
+        <div className="page-container">
+          <p>
+            © {new Date().getFullYear()} {siteConfig.hostName} · Todos os direitos reservados
+          </p>
+        </div>
       </footer>
     </main>
   );

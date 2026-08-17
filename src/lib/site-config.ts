@@ -14,8 +14,8 @@ export const siteConfig = {
   eventName: "Cookie de Bala Baiana",
   eventHook: "Bala Baiana",
   eventDateShort: "17 de agosto",
-  eventTimeShort: "[HORÁRIO]", // atualizar quando o horário for confirmado
-  eventDateLong: "17 de agosto",
+  eventTimeShort: "19h",
+  eventDateLong: "17 de agosto, às 19h",
   eventIsOnline: true,
   eventIsFree: true,
   eventOrigin: "landing-bala-baiana",
@@ -25,20 +25,20 @@ export const siteConfig = {
   socialProofText: "alunas já passaram pelos cursos da Flávia Maskavo.",
 
   /** WhatsApp group (shown on the thank-you page) */
-  whatsappGroupUrl: "https://chat.whatsapp.com/Eyo30XEe1sPGvOCw2XktwK",
+  whatsappGroupUrl: "https://chat.whatsapp.com/LDCV1lbvQGA8hFnzHBU4bT",
 
   /** Form webhook — POST JSON leads here. Replace with YOUR endpoint. */
   webhookUrl:
-    "https://webhook-n8n.v4companyamaral.com/webhook/fc7781ec-0d4c-46e3-ba4c-3c0dfc2c0a96",
+    "https://webhook-n8n.v4companyamaral.com/webhook/6c8244fe-0f73-40cc-83cb-a78d1d65354e",
 
   /** SEO — keep title < 60 chars, description < 160 chars */
   seo: {
     title: "Aula Gratuita AO VIVO — Cookie de Bala Baiana com Flávia Maskavo",
     description:
-      "17 de agosto. Aprenda o Cookie de Bala Baiana ao vivo com Flávia Maskavo. Online e gratuito. A aula não ficará gravada.",
+      "17 de agosto, às 19h. Aprenda o Cookie de Bala Baiana ao vivo com Flávia Maskavo. Online e gratuito. A aula não ficará gravada.",
     ogTitle: "Aula Gratuita AO VIVO — Cookie de Bala Baiana",
     ogDescription:
-      "Aula prática e gratuita ao vivo em 17 de agosto. Aprenda o Cookie de Bala Baiana com Flávia Maskavo. Inscreva-se agora.",
+      "Aula prática e gratuita ao vivo em 17 de agosto, às 19h. Aprenda o Cookie de Bala Baiana com Flávia Maskavo. Inscreva-se agora.",
   },
 } as const;
 
